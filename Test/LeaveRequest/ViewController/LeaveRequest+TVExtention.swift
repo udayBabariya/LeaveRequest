@@ -19,6 +19,15 @@ extension LeaveRequestViewController: UITableViewDelegate, UITableViewDataSource
         let leaveDay = viewModel.leave.leaveDays[indexPath.row]
         cell.configureCell(leaveDay: leaveDay)
         cell.delegate = self
+        
+        ///cell progress bar dot conntion logic
+        if indexPath.row == 0 && viewModel.leave.leaveDays.count > 1{
+            cell.setStartDayUI()
+        }else if indexPath.row == viewModel.leave.leaveDays.count - 1 && viewModel.leave.leaveDays.count > 1{
+            cell.setEndDayUI()
+        }else if viewModel.leave.leaveDays.count > 1{
+            cell.setMiddleDayUI()
+        }
         return cell
     }
     

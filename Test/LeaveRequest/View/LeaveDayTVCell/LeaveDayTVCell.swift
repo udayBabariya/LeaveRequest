@@ -36,15 +36,12 @@ class LeaveDayTVCell: UITableViewCell {
         cirleProgressView.layer.borderWidth = 2
         cirleProgressView.layer.borderColor = Theme.appColor.cgColor
         
-        
-        
         DispatchQueue.main.async {
             self.cirleProgressView.layer.cornerRadius = self.cirleProgressView.frame.width/2
             self.fullButton.layer.cornerRadius = self.fullButton.frame.height/2
             self.firstHalfButton.layer.cornerRadius = self.firstHalfButton.frame.height/2
             self.secondHalfButton.layer.cornerRadius = self.secondHalfButton.frame.height/2
         }
-        
         
         topProgressView.backgroundColor = Theme.appColor
         bottomProgressView.backgroundColor = Theme.appColor
@@ -70,6 +67,7 @@ class LeaveDayTVCell: UITableViewCell {
         secondHalfButton.layer.borderWidth = 0.8
     }
     
+    ///cell configuration
     func configureCell(leaveDay: LeaveDay){
         date = leaveDay.date
         dateLabel.text = date.toString()
@@ -110,6 +108,13 @@ class LeaveDayTVCell: UITableViewCell {
     func setEndDayUI(){
         topProgressView.isHidden = false
         bottomProgressView.isHidden = true
+        cirleProgressView.isHidden = false
+    }
+    
+    /// to set ui for mid day of leave
+    func setMiddleDayUI(){
+        topProgressView.isHidden = false
+        bottomProgressView.isHidden = false
         cirleProgressView.isHidden = false
     }
     
