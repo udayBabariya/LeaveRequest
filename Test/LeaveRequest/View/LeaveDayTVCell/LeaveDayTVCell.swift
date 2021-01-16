@@ -21,6 +21,20 @@ class LeaveDayTVCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setup()
+    }
+    
+    ///initial setup
+    func setup(){
+        cirleProgressView.layer.borderWidth = 2
+        cirleProgressView.layer.borderColor = Theme.appColor.cgColor
+        DispatchQueue.main.async {
+            self.cirleProgressView.layer.cornerRadius = self.cirleProgressView.frame.width/2
+        }
+        
+        
+        topProgressView.backgroundColor = Theme.appColor
+        bottomProgressView.backgroundColor = Theme.appColor
     }
     
     func configureCell(leaveDay: LeaveDay){

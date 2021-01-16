@@ -83,6 +83,14 @@ class Leave {
         reason = ""
     }
     
+    
+    ///To set leave days from start and end date
+    func setLeaveDays(){
+        let days = Date.dates(from: startDate, to: endDate)
+        for day in days{
+            leaveDays.append(LeaveDay(date: day, dayType: .full, halfDayType: .full))
+        }
+    }
 } 
 
 /// used for leave model
@@ -90,4 +98,10 @@ class LeaveDay {
     var data = Date()
     var dayType = dayLeaveType.full
     var halfDayType = halfDayLeaveType.full
+    
+    init(date: Date, dayType: dayLeaveType, halfDayType: halfDayLeaveType) {
+        self.data = date
+        self.dayType = dayType
+        self.halfDayType = halfDayType
+    }
 }

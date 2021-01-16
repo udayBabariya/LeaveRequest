@@ -44,6 +44,7 @@ class LeaveRequestViewController: UIViewController {
     //MARK:- life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.leave.setLeaveDays()
         setUp()
         setData()
     }
