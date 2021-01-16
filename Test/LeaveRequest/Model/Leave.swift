@@ -75,7 +75,6 @@ class Leave {
     var reason = ""
     
     func reset(){
-        type = LeaveType.SL
         totalDays = 1.0
         startDate = Date()
         endDate = Date()

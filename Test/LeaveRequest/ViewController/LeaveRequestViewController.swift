@@ -112,6 +112,33 @@ class LeaveRequestViewController: UIViewController {
     func setDataAccordingLeaveType(){
         selectedLeaveTypeLabel.text = viewModel.leave.type.description
         selectedLeaveTypeValueLabel.text = String(viewModel.leave.type.value)
+        resetLeaveDatesIfNeeded()
+    }
+    
+    ///check leave dates according to leave type and update
+    func resetLeaveDatesIfNeeded(){
+        switch viewModel.leave.type{
+        case .SL:
+            //SL / CL must not selected for future date
+            if viewModel.leave.endDate > Date(){
+                self.viewModel.leave.reset()
+                self.setData()
+            }
+        case .CL:
+            //SL / CL must not selected for future date
+            if viewModel.leave.endDate > Date(){
+                self.viewModel.leave.reset()
+                self.setData()
+            }
+        case .PL:
+            //PL should be in future date
+            if viewModel.leave.startDate <= Date(){
+                self.viewModel.leave.reset()
+                self.setData()
+            }
+        case .LWP:
+            break
+        }
     }
     
     /// to set date tableView according to selected dates
@@ -126,6 +153,10 @@ class LeaveRequestViewController: UIViewController {
     
     //MARK:- Button Action
     @IBAction func requestButtonAction(_ sender: UIButton){
+        requestButton.isEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.requestButton.isEnabled = true
+        }
         //to do - validatation
     }
     
