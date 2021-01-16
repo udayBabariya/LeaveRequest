@@ -28,8 +28,21 @@ class LeaveDayTVCell: UITableViewCell {
     func setup(){
         cirleProgressView.layer.borderWidth = 2
         cirleProgressView.layer.borderColor = Theme.appColor.cgColor
+        
+        fullButton.layer.borderColor = UIColor.darkGray.cgColor
+        fullButton.layer.borderWidth = 0.8
+        
+        firstHalfButton.layer.borderColor = UIColor.darkGray.cgColor
+        firstHalfButton.layer.borderWidth = 0.8
+        
+        secondHalfButton.layer.borderColor = UIColor.darkGray.cgColor
+        secondHalfButton.layer.borderWidth = 0.8
+        
         DispatchQueue.main.async {
             self.cirleProgressView.layer.cornerRadius = self.cirleProgressView.frame.width/2
+            self.fullButton.layer.cornerRadius = self.fullButton.frame.height/2
+            self.firstHalfButton.layer.cornerRadius = self.firstHalfButton.frame.height/2
+            self.secondHalfButton.layer.cornerRadius = self.secondHalfButton.frame.height/2
         }
         
         
@@ -39,6 +52,29 @@ class LeaveDayTVCell: UITableViewCell {
     
     func configureCell(leaveDay: LeaveDay){
         dateLabel.text = leaveDay.data.toString(dateFormat: AppConstants.dateFormat)
+        setSingleDayUI()
+    }
+    
+    
+    /// to set ui for single day of leave
+    func setSingleDayUI(){
+        topProgressView.isHidden = true
+        bottomProgressView.isHidden = true
+        cirleProgressView.isHidden = false
+    }
+    
+    /// to set ui for first day of leave
+    func setStartDayUI(){
+        topProgressView.isHidden = true
+        bottomProgressView.isHidden = false
+        cirleProgressView.isHidden = false
+    }
+    
+    /// to set ui for last day of leave
+    func setEndDayUI(){
+        topProgressView.isHidden = false
+        bottomProgressView.isHidden = true
+        cirleProgressView.isHidden = false
     }
     
 }
