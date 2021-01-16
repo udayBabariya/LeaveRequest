@@ -37,6 +37,8 @@ class LeaveRequestViewController: UIViewController {
     @IBOutlet weak var requestButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     
+    @IBOutlet weak var heightConstraintTableView: NSLayoutConstraint!
+    
     let viewModel = LeaveRequestLeaveModel()
     let datePicker = UIDatePicker()
     var activeTextField: UITextField?
@@ -53,6 +55,13 @@ class LeaveRequestViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        UIView.animate(withDuration: 0.3) {
+            self.heightConstraintTableView.constant = self.leaveDaysTableView.contentSize.height
+        }
     }
     
     ///initial setup
@@ -86,6 +95,7 @@ class LeaveRequestViewController: UIViewController {
         setDatePicker()
     }
     
+    ///set Date information according to leave date selection
     private func setData(){
         leaveDaysTableView.reloadData()
         leaveTypeCollectionView.reloadData()
@@ -96,6 +106,7 @@ class LeaveRequestViewController: UIViewController {
         endDateLabel.text = viewModel.leave.endDate.toString()
         totalLeaveDaysLabel.text = String(viewModel.leave.totalDays)
         reasonTextView.text = viewModel.leave.reason
+        
     }
     
     /// used for set values of selected Leave type
@@ -108,6 +119,8 @@ class LeaveRequestViewController: UIViewController {
     func setDatesView(){
         startDateLabel.text = viewModel.leave.startDate.toString()
         endDateLabel.text = viewModel.leave.endDate.toString()
+        viewModel.leave.setLeaveDays()
+        leaveDaysTableView.reloadData()
     }
     
     //MARK:- Button Action

@@ -176,6 +176,9 @@
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5oH-2S-K4z">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="RUb-lo-QL7"/>
+                                                                </constraints>
                                                                 <prototypes>
                                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="azD-ff-6Hy">
                                                                         <rect key="frame" x="0.0" y="28" width="374" height="100"/>
@@ -291,7 +294,6 @@
                                                         <constraints>
                                                             <constraint firstItem="5oH-2S-K4z" firstAttribute="leading" secondItem="Gqb-S3-rrR" secondAttribute="leading" id="3Gp-Sv-ru3"/>
                                                             <constraint firstAttribute="trailing" secondItem="5oH-2S-K4z" secondAttribute="trailing" id="GV6-sU-4rJ"/>
-                                                            <constraint firstAttribute="height" constant="50" id="YpL-ja-R3n"/>
                                                             <constraint firstAttribute="bottom" secondItem="5oH-2S-K4z" secondAttribute="bottom" id="lgc-kv-g0d"/>
                                                             <constraint firstItem="5oH-2S-K4z" firstAttribute="top" secondItem="Gqb-S3-rrR" secondAttribute="top" id="opd-Yz-Bt3"/>
                                                         </constraints>
@@ -511,6 +513,7 @@
                     <connections>
                         <outlet property="endDateLabel" destination="Pyw-Nl-Q4j" id="hxP-Vn-BIE"/>
                         <outlet property="endDateTextField" destination="Dr3-o0-fO1" id="oZK-2a-jaM"/>
+                        <outlet property="heightConstraintTableView" destination="RUb-lo-QL7" id="9Wy-pU-fOz"/>
                         <outlet property="leaveDaysTableView" destination="5oH-2S-K4z" id="Oxd-kr-DpN"/>
                         <outlet property="leaveTypeCollectionView" destination="r6X-il-FXA" id="U6r-dX-kfE"/>
                         <outlet property="reasonTextView" destination="waE-5H-p8U" id="s8g-Yn-bhl"/>
