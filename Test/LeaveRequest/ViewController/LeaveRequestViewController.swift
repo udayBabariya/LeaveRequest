@@ -14,30 +14,30 @@ class LeaveRequestViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var leaveTypeCollectionView: UICollectionView!
     @IBOutlet weak var leaveDaysTableView: UITableView!
+    @IBOutlet weak var heightConstraintTableView: NSLayoutConstraint!
     
     ///selected LeaveType
     @IBOutlet weak var selectedLeaveTypeLabel: UILabel!
     @IBOutlet weak var selectedLeaveTypeValueLabel: UILabel!
     @IBOutlet weak var slectedVeaveTypeView: UIView!
     
-    @IBOutlet weak var startDateTextField: UITextField! //used for datePicker
-    @IBOutlet weak var endDateTextField: UITextField!
     ///start Date
     @IBOutlet weak var startDateLabel: UILabel!
+    @IBOutlet weak var startDateTextField: UITextField! //used for datePicker
     
     ///end Date
     @IBOutlet weak var endDateLabel: UILabel!
+    @IBOutlet weak var endDateTextField: UITextField! //used for datePicker
     
     ///total leave day
     @IBOutlet weak var totalLeaveDaysLabel: UILabel!
-        
+    
+    ///reason
     @IBOutlet weak var reasonTextView: UITextView!
     
     ///buttons
     @IBOutlet weak var requestButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
-    
-    @IBOutlet weak var heightConstraintTableView: NSLayoutConstraint!
     
     let viewModel = LeaveRequestLeaveModel()
     let datePicker = UIDatePicker()
@@ -181,6 +181,7 @@ class LeaveRequestViewController: UIViewController {
     }
     
     @IBAction func endDateButtonAction(_ sender: UIButton){
+        startDateTextField.resignFirstResponder()
         activeTextField = endDateTextField
         endDateTextField.becomeFirstResponder()
     }

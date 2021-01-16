@@ -36,4 +36,11 @@ extension Date{
         return dates
     }
     
+    /// add or subtract days from date
+    /// - Parameter days: no of days
+    /// - Returns: days wit add/subtract required days
+    func adding(days: Int)-> Date{
+        return Calendar.current.date(byAdding: .day, value: days, to: self)!
+    }
+    
 }

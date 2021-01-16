@@ -28,6 +28,7 @@ extension LeaveRequestViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel.leave.type =  LeaveType.allCases[indexPath.item]
         setDataAccordingLeaveType()
+        activeTextField?.resignFirstResponder()
         collectionView.reloadData()
     }
     

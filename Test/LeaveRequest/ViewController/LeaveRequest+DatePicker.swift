@@ -14,6 +14,8 @@ extension LeaveRequestViewController{
         //Formate Date
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
+        datePicker.minimumDate = Date().adding(days: -365)
+        datePicker.maximumDate = Date().adding(days: 365)
         
         //ToolBar
         let toolbar = UIToolbar();
