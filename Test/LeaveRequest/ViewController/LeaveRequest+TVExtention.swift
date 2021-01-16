@@ -29,6 +29,6 @@ extension LeaveRequestViewController: UITableViewDelegate, UITableViewDataSource
 extension LeaveRequestViewController:  leaveDayTVCellDelegate {
     func updateLeaveType(type: halfDayLeaveType, forDay : Date) {
         viewModel.leave.updateLeaveType(for: forDay, type: type)
-        leaveDaysTableView.reloadData()
+        setDatesView()
     }
 }

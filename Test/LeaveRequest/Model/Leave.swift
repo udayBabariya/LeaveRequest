@@ -88,7 +88,16 @@ class Leave {
     func setLeaveDays(){
         let days = Date.dates(from: startDate, to: endDate)
         for day in days{
-            leaveDays.append(LeaveDay(date: day, dayType: .full, halfDayType: .full))
+            let tempLeaveDay = leaveDays.filter {$0.date == day}
+            if tempLeaveDay.count == 0 {
+                leaveDays.append(LeaveDay(date: day, dayType: .full, halfDayType: .full))
+            }
+        }
+        
+        for (index,day) in leaveDays.enumerated().reversed(){
+            if !days.contains(day.date){
+                leaveDays.remove(at: index)
+            }
         }
     }
     
@@ -99,6 +108,20 @@ class Leave {
                 day.halfDayType = type
             }
         }
+    }
+    
+    //Total days of leave calculation
+    func calculateTotalLeaveDays(){
+        var totalDays = 0.0
+        for day in leaveDays{
+            switch day.halfDayType {
+            case .full:
+                totalDays += 1
+            case .firstHalf, .secondHalf:
+                totalDays += 0.5
+            }
+        }
+        self.totalDays = totalDays
     }
 } 
 

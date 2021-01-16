@@ -99,7 +99,6 @@ class LeaveRequestViewController: UIViewController {
     private func setData(){
         leaveDaysTableView.reloadData()
         leaveTypeCollectionView.reloadData()
-        
         selectedLeaveTypeLabel.text = viewModel.leave.type.description
         selectedLeaveTypeValueLabel.text = String(viewModel.leave.type.value)
         startDateLabel.text = viewModel.leave.startDate.toString()
@@ -117,15 +116,17 @@ class LeaveRequestViewController: UIViewController {
     
     /// to set date tableView according to selected dates
     func setDatesView(){
+        viewModel.leave.setLeaveDays()
+        viewModel.leave.calculateTotalLeaveDays()
         startDateLabel.text = viewModel.leave.startDate.toString()
         endDateLabel.text = viewModel.leave.endDate.toString()
-        viewModel.leave.setLeaveDays()
+        totalLeaveDaysLabel.text = String(viewModel.leave.totalDays)
         leaveDaysTableView.reloadData()
     }
     
     //MARK:- Button Action
     @IBAction func requestButtonAction(_ sender: UIButton){
-        
+        //to do - validatation
     }
     
     @IBAction func resetButtonAction(_ sender: UIButton){
