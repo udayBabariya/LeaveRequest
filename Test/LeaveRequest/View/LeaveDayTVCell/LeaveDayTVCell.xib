@@ -21,24 +21,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="373" height="90"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uq1-zh-sCM" userLabel="ProgressView">
-                                <rect key="frame" x="0.0" y="0.0" width="40" height="90"/>
+                                <rect key="frame" x="0.0" y="0.0" width="30" height="90"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oLx-yi-FaN" userLabel="TopVerticalView">
-                                        <rect key="frame" x="19.5" y="0.0" width="1" height="45"/>
+                                        <rect key="frame" x="14.5" y="0.0" width="1" height="45"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="8MQ-ml-XAW"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="erJ-gR-mEa" userLabel="BottomVerticalView">
-                                        <rect key="frame" x="19.5" y="45" width="1" height="45"/>
+                                        <rect key="frame" x="14.5" y="45" width="1" height="45"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="6ny-NV-3NY"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="50r-cm-7Lr" userLabel="CircleView">
-                                        <rect key="frame" x="12.5" y="37.5" width="15" height="15"/>
+                                        <rect key="frame" x="7.5" y="37.5" width="15" height="15"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="Cc3-BP-WgT"/>
@@ -53,26 +53,26 @@
                                     <constraint firstItem="oLx-yi-FaN" firstAttribute="centerX" secondItem="50r-cm-7Lr" secondAttribute="centerX" id="MKj-7v-7ip"/>
                                     <constraint firstItem="erJ-gR-mEa" firstAttribute="top" secondItem="50r-cm-7Lr" secondAttribute="centerY" id="N1Z-sS-DQF"/>
                                     <constraint firstItem="50r-cm-7Lr" firstAttribute="centerY" secondItem="uq1-zh-sCM" secondAttribute="centerY" id="pup-Es-GR4"/>
-                                    <constraint firstAttribute="width" constant="40" id="pzk-w8-DQL"/>
+                                    <constraint firstAttribute="width" constant="30" id="pzk-w8-DQL"/>
                                     <constraint firstItem="oLx-yi-FaN" firstAttribute="bottom" secondItem="50r-cm-7Lr" secondAttribute="centerY" id="s45-DT-OAC"/>
                                     <constraint firstItem="oLx-yi-FaN" firstAttribute="top" secondItem="uq1-zh-sCM" secondAttribute="top" id="swF-Eq-rgK"/>
                                     <constraint firstItem="erJ-gR-mEa" firstAttribute="centerX" secondItem="50r-cm-7Lr" secondAttribute="centerX" id="wqz-EO-cWH"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRe-7a-zed">
-                                <rect key="frame" x="50" y="35" width="41.5" height="20.5"/>
+                                <rect key="frame" x="40" y="35" width="41.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tK4-ru-xMF">
-                                <rect key="frame" x="101.5" y="20" width="256.5" height="50"/>
+                                <rect key="frame" x="91.5" y="20" width="266.5" height="50"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jy2-IM-eD2">
-                                        <rect key="frame" x="0.0" y="10" width="256.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="10" width="266.5" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzB-tk-14f">
-                                                <rect key="frame" x="0.0" y="0.0" width="79" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="82" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="FULL">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -82,7 +82,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWD-vB-mLO">
-                                                <rect key="frame" x="89" y="0.0" width="78.5" height="30"/>
+                                                <rect key="frame" x="92" y="0.0" width="82.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="1st">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -92,7 +92,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Srl-hJ-0JZ">
-                                                <rect key="frame" x="177.5" y="0.0" width="79" height="30"/>
+                                                <rect key="frame" x="184.5" y="0.0" width="82" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="2nd">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

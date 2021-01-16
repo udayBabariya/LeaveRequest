@@ -79,6 +79,7 @@ class LeaveRequestViewController: UIViewController {
         ///reason textView
         reasonTextView.layer.cornerRadius = 5
         reasonTextView.setShadowWithColor(color: .black, opacity: 0.2, offset: CGSize(width: 1, height: 1), radius: 5, viewCornerRadius: 5)
+        reasonTextView.delegate = self
         
         ///buttons
         requestButton.backgroundColor = Theme.appColor
@@ -91,6 +92,10 @@ class LeaveRequestViewController: UIViewController {
         
         startDateTextField.delegate = self
         endDateTextField.delegate = self
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
         
         setDatePicker()
     }
@@ -105,7 +110,6 @@ class LeaveRequestViewController: UIViewController {
         endDateLabel.text = viewModel.leave.endDate.toString()
         totalLeaveDaysLabel.text = String(viewModel.leave.totalDays)
         reasonTextView.text = viewModel.leave.reason
-        
     }
     
     /// used for set values of selected Leave type
@@ -113,6 +117,12 @@ class LeaveRequestViewController: UIViewController {
         selectedLeaveTypeLabel.text = viewModel.leave.type.description
         selectedLeaveTypeValueLabel.text = String(viewModel.leave.type.value)
         resetLeaveDatesIfNeeded()
+    }
+    
+    ///dismiss keyboard
+    @objc func dismissKeyboard(){
+        activeTextField = nil
+        view.endEditing(true)
     }
     
     ///check leave dates according to leave type and update
@@ -181,7 +191,6 @@ class LeaveRequestViewController: UIViewController {
     }
     
     @IBAction func endDateButtonAction(_ sender: UIButton){
-        startDateTextField.resignFirstResponder()
         activeTextField = endDateTextField
         endDateTextField.becomeFirstResponder()
     }

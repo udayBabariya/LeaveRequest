@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C207286725B3419900E88A35 /* LeaveRequest+TVDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C207286625B3419900E88A35 /* LeaveRequest+TVDelegate.swift */; };
 		C2192D2C25B1F2150084980F /* LeaveTypesCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2192D2A25B1F2150084980F /* LeaveTypesCVCell.swift */; };
 		C2192D2D25B1F2150084980F /* LeaveTypesCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2192D2B25B1F2150084980F /* LeaveTypesCVCell.xib */; };
 		C2192D3125B1F5CE0084980F /* LeaveDayTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2192D2F25B1F5CE0084980F /* LeaveDayTVCell.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C207286625B3419900E88A35 /* LeaveRequest+TVDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeaveRequest+TVDelegate.swift"; sourceTree = "<group>"; };
 		C2192D2A25B1F2150084980F /* LeaveTypesCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveTypesCVCell.swift; sourceTree = "<group>"; };
 		C2192D2B25B1F2150084980F /* LeaveTypesCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaveTypesCVCell.xib; sourceTree = "<group>"; };
 		C2192D2F25B1F5CE0084980F /* LeaveDayTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveDayTVCell.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				C2192D3D25B1FA9C0084980F /* LeaveRequest+CVExtension.swift */,
 				C2192D5125B284990084980F /* LeaveRequest+DatePicker.swift */,
 				C2192D5425B28C5C0084980F /* LeaveRequest+TFExtension.swift */,
+				C207286625B3419900E88A35 /* LeaveRequest+TVDelegate.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				C2B0011A25B19152002B6F64 /* Leave.swift in Sources */,
 				C2B0013325B19F6B002B6F64 /* LeaveRequestViewController.swift in Sources */,
 				C2192D3125B1F5CE0084980F /* LeaveDayTVCell.swift in Sources */,
+				C207286725B3419900E88A35 /* LeaveRequest+TVDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
