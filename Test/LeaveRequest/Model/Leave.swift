@@ -91,16 +91,25 @@ class Leave {
             leaveDays.append(LeaveDay(date: day, dayType: .full, halfDayType: .full))
         }
     }
+    
+    ///update leave type for perticular date
+    func updateLeaveType(for date: Date, type: halfDayLeaveType){
+        for day in leaveDays{
+            if day.date == date{
+                day.halfDayType = type
+            }
+        }
+    }
 } 
 
 /// used for leave model
 class LeaveDay {
-    var data = Date()
+    var date = Date()
     var dayType = dayLeaveType.full
     var halfDayType = halfDayLeaveType.full
     
     init(date: Date, dayType: dayLeaveType, halfDayType: halfDayLeaveType) {
-        self.data = date
+        self.date = date
         self.dayType = dayType
         self.halfDayType = halfDayType
     }

@@ -18,8 +18,17 @@ extension LeaveRequestViewController: UITableViewDelegate, UITableViewDataSource
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CellId.leaveDayTVCell) as? LeaveDayTVCell else {return LeaveDayTVCell()}
         let leaveDay = viewModel.leave.leaveDays[indexPath.row]
         cell.configureCell(leaveDay: leaveDay)
+        cell.delegate = self
         return cell
     }
     
     
+}
+
+//MARK:- leaveDayTVCellDelegate
+extension LeaveRequestViewController:  leaveDayTVCellDelegate {
+    func updateLeaveType(type: halfDayLeaveType, forDay : Date) {
+        viewModel.leave.updateLeaveType(for: forDay, type: type)
+        leaveDaysTableView.reloadData()
+    }
 }

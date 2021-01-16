@@ -23,7 +23,7 @@ extension LeaveRequestViewController{
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(title: StringConstants.cancel, style: .plain, target: self, action: #selector(cancelDatePicker));
         cancelButton.tintColor = .darkGray
-        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        toolbar.setItems([cancelButton,spaceButton,doneButton], animated: false)
         
         startDateTextField.inputAccessoryView = toolbar
         startDateTextField.inputView = datePicker

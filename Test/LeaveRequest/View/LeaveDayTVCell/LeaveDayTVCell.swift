@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol leaveDayTVCellDelegate{
+    func updateLeaveType(type:halfDayLeaveType, forDay: Date)
+}
+
 class LeaveDayTVCell: UITableViewCell {
 
     ///progress views
@@ -19,6 +23,9 @@ class LeaveDayTVCell: UITableViewCell {
     @IBOutlet weak var firstHalfButton: UIButton!
     @IBOutlet weak var secondHalfButton: UIButton!
     
+    var delegate: leaveDayTVCellDelegate?
+    private var date = Date()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
@@ -29,14 +36,7 @@ class LeaveDayTVCell: UITableViewCell {
         cirleProgressView.layer.borderWidth = 2
         cirleProgressView.layer.borderColor = Theme.appColor.cgColor
         
-        fullButton.layer.borderColor = UIColor.darkGray.cgColor
-        fullButton.layer.borderWidth = 0.8
         
-        firstHalfButton.layer.borderColor = UIColor.darkGray.cgColor
-        firstHalfButton.layer.borderWidth = 0.8
-        
-        secondHalfButton.layer.borderColor = UIColor.darkGray.cgColor
-        secondHalfButton.layer.borderWidth = 0.8
         
         DispatchQueue.main.async {
             self.cirleProgressView.layer.cornerRadius = self.cirleProgressView.frame.width/2
@@ -48,11 +48,47 @@ class LeaveDayTVCell: UITableViewCell {
         
         topProgressView.backgroundColor = Theme.appColor
         bottomProgressView.backgroundColor = Theme.appColor
+        resetAllButtonsUI()
+    }
+    
+    ///Restet all buttons UI
+    func resetAllButtonsUI(){
+        fullButton.backgroundColor = .white
+        firstHalfButton.backgroundColor = .white
+        secondHalfButton.backgroundColor = .white
+        
+        fullButton.setTitleColor(.darkGray, for: .normal)
+        firstHalfButton.setTitleColor(.darkGray, for: .normal)
+        secondHalfButton.setTitleColor(.darkGray, for: .normal)
+        
+        fullButton.layer.borderColor = UIColor.darkGray.cgColor
+        firstHalfButton.layer.borderColor = UIColor.darkGray.cgColor
+        secondHalfButton.layer.borderColor = UIColor.darkGray.cgColor
+        
+        fullButton.layer.borderWidth = 0.8
+        firstHalfButton.layer.borderWidth = 0.8
+        secondHalfButton.layer.borderWidth = 0.8
     }
     
     func configureCell(leaveDay: LeaveDay){
-        dateLabel.text = leaveDay.data.toString(dateFormat: AppConstants.dateFormat)
+        date = leaveDay.date
+        dateLabel.text = date.toString()
         setSingleDayUI()
+        resetAllButtonsUI()
+        switch leaveDay.halfDayType{
+        case .full:
+            fullButton.backgroundColor = Theme.appColor
+            fullButton.setTitleColor(.white, for: .normal)
+            fullButton.layer.borderColor = UIColor.clear.cgColor
+        case .firstHalf:
+            firstHalfButton.backgroundColor = Theme.appColor
+            firstHalfButton.setTitleColor(.white, for: .normal)
+            firstHalfButton.layer.borderColor = UIColor.clear.cgColor
+        case .secondHalf:
+            secondHalfButton.backgroundColor = Theme.appColor
+            secondHalfButton.setTitleColor(.white, for: .normal)
+            secondHalfButton.layer.borderColor = UIColor.clear.cgColor
+        }
     }
     
     
@@ -77,4 +113,19 @@ class LeaveDayTVCell: UITableViewCell {
         cirleProgressView.isHidden = false
     }
     
+    
+    @IBAction func fullButtonAction(_ sender: UIButton){
+        delegate?.updateLeaveType(type: .full, forDay: date)
+    }
+    
+    @IBAction func firsthalfButtonAction(_ sender: UIButton){
+        delegate?.updateLeaveType(type: .firstHalf, forDay: date)
+    }
+    
+    @IBAction func secondHalfButtonAction(_ sender: UIButton){
+        delegate?.updateLeaveType(type: .secondHalf, forDay: date)
+    }
+    
+    
+     
 }

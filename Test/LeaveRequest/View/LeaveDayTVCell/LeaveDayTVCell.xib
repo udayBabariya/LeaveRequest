@@ -77,6 +77,9 @@
                                                 <state key="normal" title="FULL">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="fullButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wJS-o0-Fro"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWD-vB-mLO">
                                                 <rect key="frame" x="89" y="0.0" width="78.5" height="30"/>
@@ -84,6 +87,9 @@
                                                 <state key="normal" title="1st">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="firsthalfButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FO8-tT-eH3"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Srl-hJ-0JZ">
                                                 <rect key="frame" x="177.5" y="0.0" width="79" height="30"/>
@@ -91,6 +97,9 @@
                                                 <state key="normal" title="2nd">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="secondHalfButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="qrh-99-fVa"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
