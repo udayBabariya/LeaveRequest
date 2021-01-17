@@ -52,9 +52,11 @@ class LeaveRequestViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        registerForKeyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        deregisterFromKeyboardNotifications()
     }
     
     override func viewDidLayoutSubviews() {

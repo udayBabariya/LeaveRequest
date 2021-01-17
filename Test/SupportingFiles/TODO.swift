@@ -6,8 +6,7 @@
 //
  
 /*
- 2 - Keyboard handling
  3 - API call
  15 - sandwitch leave logic
- 16 - need to check UI for iPhoneSE
+ 20 - tabBarController
  */
