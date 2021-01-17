@@ -170,13 +170,17 @@ class LeaveRequestViewController: UIViewController {
             self.requestButton.isEnabled = true
         }
         if viewModel.leave.reason.isEmpty{
-            print("Reason can't be Empty")
+            showAlert(head: StringConstants.oops, message: StringConstants.reasonEmpty)
             return
         }
         
+        startLoading()
         viewModel.makeLeaveRequest {
+            self.viewModel.leave.reset()
+            self.setData()
+            self.endLoading()
             print("Completed")
-            //todo - clear leave data and reset UI
+             
         }
     }
     

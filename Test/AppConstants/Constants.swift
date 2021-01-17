@@ -35,4 +35,6 @@ class StringConstants{
     static let no           = "No"
     static let done         = "Done"
     static let cancel       = "Cancel"
+    static let reasonEmpty  = "Reason can't be Empty"
+    static let oops         = "Oops!"
 }
