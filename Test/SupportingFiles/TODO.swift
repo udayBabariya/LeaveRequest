@@ -6,9 +6,7 @@
 //
  
 /*
- 3 - API call
+ 3 - API call (error - wrong parameter)
  15 - sandwitch leave logic
  20 - tabBarController
- 21 - show/hide loader while API call
- 22 - show alert for empty "reason"
  */

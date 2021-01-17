@@ -24,9 +24,7 @@ extension UIViewController{
     
     ///to hide loader
     func endLoading(){
-        DispatchQueue.main.async {
-            self.dismiss(animated: false, completion: nil)
-        }
+        self.dismiss(animated: false, completion: nil)
     }
     
     //Show Alert

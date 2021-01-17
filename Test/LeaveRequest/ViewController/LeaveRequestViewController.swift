@@ -176,11 +176,12 @@ class LeaveRequestViewController: UIViewController {
         
         startLoading()
         viewModel.makeLeaveRequest {
-            self.viewModel.leave.reset()
-            self.setData()
-            self.endLoading()
-            print("Completed")
-             
+            DispatchQueue.main.async {
+                self.viewModel.leave.reset()
+                self.setData()
+                self.endLoading()
+                print("Completed")
+            } 
         }
     }
     
