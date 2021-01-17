@@ -169,7 +169,15 @@ class LeaveRequestViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.requestButton.isEnabled = true
         }
-        //to do - validatation
+        if viewModel.leave.reason.isEmpty{
+            print("Reason can't be Empty")
+            return
+        }
+        
+        viewModel.makeLeaveRequest {
+            print("Completed")
+            //todo - clear leave data and reset UI
+        }
     }
     
     @IBAction func resetButtonAction(_ sender: UIButton){

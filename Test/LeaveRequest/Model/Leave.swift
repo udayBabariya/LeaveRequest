@@ -57,13 +57,16 @@ enum  halfDayLeaveType {
     case full
     case firstHalf
     case secondHalf
+    
+    var title: String {
+        switch self {
+        case .full: return "Full"
+        case .firstHalf: return "1st Half"
+        case .secondHalf: return "2nd Half"
+        }
+    }
 }
 
-/// types of day leave
-enum dayLeaveType {
-    case full
-    case half
-}
 
 /// leave model
 class Leave {
@@ -89,7 +92,7 @@ class Leave {
         for day in days{
             let tempLeaveDay = leaveDays.filter {$0.date == day}
             if tempLeaveDay.count == 0 {
-                leaveDays.append(LeaveDay(date: day, dayType: .full, halfDayType: .full))
+                leaveDays.append(LeaveDay(date: day, halfDayType: .full))
             }
         }
         
@@ -122,17 +125,33 @@ class Leave {
         }
         self.totalDays = totalDays
     }
+    
+    ///get array of leave days for API request
+    func getLeaveDaysDataFromModel()-> [[String:String]]{
+        var data = [[String:String]]()
+        for day in leaveDays{
+            data.append(day.getDataFromModel())
+        }
+        return data
+    }
 } 
 
 /// used for leave model
 class LeaveDay {
     var date = Date()
-    var dayType = dayLeaveType.full
     var halfDayType = halfDayLeaveType.full
     
-    init(date: Date, dayType: dayLeaveType, halfDayType: halfDayLeaveType) {
+    init(date: Date, halfDayType: halfDayLeaveType) {
         self.date = date
-        self.dayType = dayType
         self.halfDayType = halfDayType
+    }
+    
+    ///get data for model for API request
+    func getDataFromModel() -> [String:String] {
+        var data = [String:String]()
+        data[ApiParams.date] = date.toString()
+        data[ApiParams.dayType] = halfDayType == .full ? "Full" : "Half"
+        data[ApiParams.halfDayType] = halfDayType.title
+        return data
     }
 }

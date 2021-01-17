@@ -17,7 +17,7 @@ class ApiParams {
     static let reason       = "reason"
     static let companyId    = "company_id"
     static let leaveType    = "leave_type"
-    static let firstname    = "first_name"
+    static let firstName    = "first_name"
     static let lastName     = "last_name"
     static let leaveDays    = "leave_days"
     static let date         = "date"
