@@ -23,6 +23,9 @@ class LeaveDayTVCell: UITableViewCell {
     @IBOutlet weak var firstHalfButton: UIButton!
     @IBOutlet weak var secondHalfButton: UIButton!
     
+    @IBOutlet weak var holidayView: UIView!
+    @IBOutlet weak var weekDayLabel: UILabel!
+    
     var delegate: leaveDayTVCellDelegate?
     private var date = Date()
     
@@ -45,6 +48,8 @@ class LeaveDayTVCell: UITableViewCell {
         
         topProgressView.backgroundColor = Theme.appColor
         bottomProgressView.backgroundColor = Theme.appColor
+        holidayView.isHidden = true
+        weekDayLabel.text = ""
         resetAllButtonsUI()
     }
     
@@ -87,7 +92,16 @@ class LeaveDayTVCell: UITableViewCell {
             secondHalfButton.setTitleColor(.white, for: .normal)
             secondHalfButton.layer.borderColor = UIColor.clear.cgColor
         }
+        
+        if leaveDay.date.dayofTheWeek == .sat || leaveDay.date.dayofTheWeek == .sun{
+            holidayView.isHidden = false
+            weekDayLabel.text = leaveDay.date.dayofTheWeek.title
+        }else{
+            holidayView.isHidden = true
+            weekDayLabel.text = ""
+        }
     }
+    
     
     
     /// to set ui for single day of leave

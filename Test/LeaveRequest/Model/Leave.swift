@@ -76,6 +76,7 @@ class Leave {
     var endDate = Date()
     var leaveDays = [LeaveDay]()
     var reason = ""
+    var isSandwitch = false
     
     func reset(){
         totalDays = 1.0
@@ -101,6 +102,8 @@ class Leave {
                 leaveDays.remove(at: index)
             }
         }
+        
+        leaveDays = leaveDays.sorted(by: {$0.date.compare($1.date) == .orderedAscending })
     }
     
     ///update leave type for perticular date
@@ -124,6 +127,31 @@ class Leave {
             }
         }
         self.totalDays = totalDays
+        checkForHolidays()
+    }
+    
+    ///exclude satDay, sunDay and public holidays
+    func checkForHolidays(){
+        for day in leaveDays{
+            if day.date.dayofTheWeek == .sat ||  day.date.dayofTheWeek == .sun {
+                totalDays -= day.halfDayType == .full ? 1 : 0.5
+            }
+        }
+    }
+    
+    
+    ///if leave day include Friday and next Monday - it will be considered as sandwhich leave
+    ///considering 5 day working week
+    func checkForSandwitchLeave(){
+        var isHasSunday = false
+        var isHasSatday = false
+        for day in leaveDays{
+            if day.date.dayofTheWeek == .sun {isHasSunday = true}
+            if day.date.dayofTheWeek == .sat {isHasSatday = true}
+        }
+        if leaveDays.count > 2 && isHasSatday && isHasSunday {
+            isSandwitch = true
+        }
     }
     
     ///get array of leave days for API request

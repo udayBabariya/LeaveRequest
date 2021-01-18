@@ -115,17 +115,37 @@
                                     <constraint firstItem="jy2-IM-eD2" firstAttribute="centerY" secondItem="tK4-ru-xMF" secondAttribute="centerY" id="rWL-zi-e0f"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATY-rm-YRf">
+                                <rect key="frame" x="91.5" y="0.0" width="281.5" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XbH-ck-RUy">
+                                        <rect key="frame" x="119" y="34.5" width="44" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" red="1" green="0.080986920229553006" blue="0.19569029547432948" alpha="0.89090111142113093" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="XbH-ck-RUy" firstAttribute="centerY" secondItem="ATY-rm-YRf" secondAttribute="centerY" id="HvW-zj-7NL"/>
+                                    <constraint firstItem="XbH-ck-RUy" firstAttribute="centerX" secondItem="ATY-rm-YRf" secondAttribute="centerX" id="XfH-qL-6Mb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="uq1-zh-sCM" secondAttribute="bottom" id="1EF-gg-Mbr"/>
+                            <constraint firstAttribute="trailing" secondItem="ATY-rm-YRf" secondAttribute="trailing" id="44Z-z6-AvE"/>
                             <constraint firstItem="tK4-ru-xMF" firstAttribute="centerY" secondItem="ReF-YG-DvB" secondAttribute="centerY" id="9DK-uH-eeH"/>
+                            <constraint firstItem="ATY-rm-YRf" firstAttribute="leading" secondItem="tK4-ru-xMF" secondAttribute="leading" id="DlM-KL-nHi"/>
                             <constraint firstItem="LRe-7a-zed" firstAttribute="leading" secondItem="uq1-zh-sCM" secondAttribute="trailing" constant="10" id="Qgb-fJ-Xl0"/>
                             <constraint firstItem="tK4-ru-xMF" firstAttribute="leading" secondItem="LRe-7a-zed" secondAttribute="trailing" constant="10" id="alE-Oa-Mce"/>
                             <constraint firstItem="LRe-7a-zed" firstAttribute="centerY" secondItem="ReF-YG-DvB" secondAttribute="centerY" id="e3l-xg-8kk"/>
                             <constraint firstAttribute="trailing" secondItem="tK4-ru-xMF" secondAttribute="trailing" constant="15" id="shL-L2-pXg"/>
+                            <constraint firstAttribute="bottom" secondItem="ATY-rm-YRf" secondAttribute="bottom" id="xqR-3P-lTI"/>
                             <constraint firstItem="uq1-zh-sCM" firstAttribute="top" secondItem="ReF-YG-DvB" secondAttribute="top" id="y5c-7u-TvA"/>
                             <constraint firstItem="uq1-zh-sCM" firstAttribute="leading" secondItem="ReF-YG-DvB" secondAttribute="leading" id="yoT-bo-2zR"/>
+                            <constraint firstItem="ATY-rm-YRf" firstAttribute="top" secondItem="ReF-YG-DvB" secondAttribute="top" id="zzd-3d-dZG"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -143,8 +163,10 @@
                 <outlet property="dateLabel" destination="LRe-7a-zed" id="3Db-e3-8Mt"/>
                 <outlet property="firstHalfButton" destination="AWD-vB-mLO" id="AsT-V0-xJ5"/>
                 <outlet property="fullButton" destination="HzB-tk-14f" id="9qz-uc-FTA"/>
+                <outlet property="holidayView" destination="ATY-rm-YRf" id="Xjz-4S-Mek"/>
                 <outlet property="secondHalfButton" destination="Srl-hJ-0JZ" id="FVy-xc-vJG"/>
                 <outlet property="topProgressView" destination="oLx-yi-FaN" id="Xct-Y9-sWh"/>
+                <outlet property="weekDayLabel" destination="XbH-ck-RUy" id="lGy-ep-18R"/>
             </connections>
             <point key="canvasLocation" x="-7.9710144927536239" y="77.008928571428569"/>
         </tableViewCell>

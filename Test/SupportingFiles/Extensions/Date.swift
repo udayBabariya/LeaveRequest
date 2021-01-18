@@ -43,4 +43,35 @@ extension Date{
         return Calendar.current.date(byAdding: .day, value: days, to: self)!
     }
     
+    ///to get week day (i.e. Mon, tue,...)
+    var dayofTheWeek: dayOfWeek {
+        let dayNumber = Calendar.current.component(.weekday, from: self)
+        // day number starts from 1 but array count from 0
+        return  dayOfWeek.init(rawValue: dayNumber - 1) ?? .mon
+    }
+    
+    ///consider - Monday as week start day
+    enum dayOfWeek: Int{
+        case sun = 0
+        case mon
+        case tue
+        case wed
+        case thu
+        case fri
+        case sat
+       
+        
+        var title: String {
+            switch self{
+            case .mon: return "Monday"
+            case .tue: return "TuesDay"
+            case .wed: return "Wednesday"
+            case .thu: return "Thursday"
+            case .fri: return "Friday"
+            case .sat: return "SaturDay"
+            case .sun: return "Sunday"
+            }
+        }
+    }
+    
 }
